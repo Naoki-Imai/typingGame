@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Typing.create(:question => 'rails s')
+Typing.create(:question => 'rails g controller')
+Typing.create(:question => 'ls')
+Typing.create(:question => 'git add .')
+Typing.create(:question => 'git checkout -b')
+Typing.create(:question => 'git push origin main')
+Typing.create(:question => 'docker-compose run')
+Typing.create(:question => 'docker-compose up')
