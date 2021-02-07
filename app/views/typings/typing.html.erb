@@ -1,0 +1,35 @@
+<p id="text"></p>
+
+<script>
+  var textLists = <%= raw @typings %>;
+  var p = document.getElementById('text');
+  var checkTexts =[];
+  var count = 0;
+  createText(0);
+  document.addEventListener('keydown', function keydown(e){
+    if(e.key === checkTexts[0].textContent){
+      checkTexts[0].className = 'add-blue';
+      console.log(e.key);
+      checkTexts.shift();
+      if(!checkTexts.length) {
+        count++;
+        console.log(count);
+        createText(count);
+      }
+    }
+  });
+  console.log(checkTexts);
+
+
+
+  function createText(count){
+    p.textContent = '';
+    checkTexts = textLists[count].split('').map(function(value){
+      var span = document.createElement('span');
+      span.textContent = value;
+      p.appendChild(span);
+    
+      return span;
+    });
+  }
+</script>
