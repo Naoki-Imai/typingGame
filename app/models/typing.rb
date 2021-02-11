@@ -1,2 +1,0 @@
-class Typing < ApplicationRecord
-end

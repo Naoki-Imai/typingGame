@@ -1,10 +1,8 @@
 <div class="container">
-  <h1>test</h1>
   <div class="gamewindow">
     <p id="text"></p>
-    <div class="text-center display">
-      <p id="miss">miss</p>
-       
+    <div class="appendTarget text-center display">
+      <p id="miss"></p>
     </div>
   </div>
 
@@ -46,16 +44,17 @@
         return span;
       });
     }else {
-      p.textContent = "終了です"
       var display = document.getElementsByClassName('display')[0];
-      display.classList.remove('display');
       var missText = document.getElementById('miss');
-      missText.textContent = 'ミス回数:' + miss + '回';
       var linkbtn = document.createElement('a');
+      var appendTarget = document.getElementsByClassName('appendTarget')[0];
+      p.textContent = "終了です"
+      display.classList.remove('display');
+      missText.textContent = 'ミス回数:' + miss + '回';
       linkbtn.href = "/typing/result?miss=" + miss;
-      linkbtn.textContent = "送信";
-      linkbtn.className = "btn";
-      missText.appendChild(linkbtn);
+      linkbtn.textContent = "結果発表";
+      linkbtn.className = "btn btn-primary";
+      appendTarget.appendChild(linkbtn);
     }
   }
 </script>
