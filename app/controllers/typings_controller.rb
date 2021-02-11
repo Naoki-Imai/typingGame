@@ -24,5 +24,7 @@ class TypingsController < ApplicationController
   end
 
   def result
+   @miss = params[:miss]
   end
+  
 end
