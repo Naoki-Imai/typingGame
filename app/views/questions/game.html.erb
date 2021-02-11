@@ -7,7 +7,7 @@
   </div>
 
 <script>
-  var textLists = <%= raw @typings %>;
+  var textLists = <%= raw @questions %>;
   var p = document.getElementById('text');
   var checkTexts =[];
   var count = 0;
@@ -51,7 +51,7 @@
       p.textContent = "終了です"
       display.classList.remove('display');
       missText.textContent = 'ミス回数:' + miss + '回';
-      linkbtn.href = "/typing/result?miss=" + miss;
+      linkbtn.href = "/game/result?miss=" + miss;
       linkbtn.textContent = "結果発表";
       linkbtn.className = "btn btn-primary";
       appendTarget.appendChild(linkbtn);
