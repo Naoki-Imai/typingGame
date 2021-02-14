@@ -1,6 +1,6 @@
 <div class="container">
   <div class="gamewindow">
-    <p id="text"></p>
+    <p id="text">Ready?</p>
     <div class="appendTarget text-center display">
       <p id="miss"></p>
       
@@ -16,7 +16,9 @@
   var miss = 0;
   var startTime;
   var timer;
+  startTime = Date.now();
   try {
+    setTimeout("p.textContent = 'GO!!';", 4500);
     setTimeout("createText(count);", 5000);
     setTimeout("countUp()", 5000);
     setTimeout(
@@ -43,7 +45,6 @@
   }
   function createText(count){
     p.textContent = '';
-    startTime = Date.now();
     if (count < textLists.length){
       checkTexts = textLists[count].split('').map(function(value){
         var span = document.createElement('span');

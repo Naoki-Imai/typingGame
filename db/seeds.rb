@@ -5,8 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Linux.create(:q => 'cd')
-Linux.create(:q => 'ls')
-Linux.create(:q => 'cat')
-Linux.create(:q => 'pwd')
-Linux.create(:q => 'ls -ltr')
+Git.create(:q => 'git add .')
+Git.create(:q => 'git commit -m')
+Git.create(:q => 'git checkout -b')
+Git.create(:q => 'git push origin main')
+Git.create(:q => 'git push heroku main')
