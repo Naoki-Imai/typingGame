@@ -1,2 +1,16 @@
-<h1>Questions#result</h1>
-<p>Find me in app/views/questions/result.html.erb</p>
+<div class="container">
+  <div class="resultView">
+    <h1 class="result mb-5 font-weight-bolder">結果発表</h1>
+    <p class="misscount font-weight-bold">ミス回数：<%= @miss%>回</p>
+    <p class="resultTime font-weight-bold">時間：<%= @result_time %></p>
+
+    <% if @miss.to_i >= 10 %>
+      <p class="text-danger">もっと練習しましょう、、、</p>
+    <% elsif @miss.to_i <= 5 %>
+      <p class="text-success">最高かよ！！</p>
+    <% else %>
+      <p class="text-primary">この調子！</p>
+    <% end %>
+    <%= link_to  "HOMEへ", root_path, class: "mt-5 btn btn-success" %>
+  </div>
+</div>

@@ -7,21 +7,24 @@ class QuestionsController < ApplicationController
     redirect_to root_path
   end
   def git
-    @questions = Question.pluck(:git)
+    @questions = Git.pluck(:q)
     render 'game'
   end
 
   def rails
-    @questions = Question.pluck(:rails)
+    @questions = Rail.pluck(:q)
     render 'game'
   end
 
   def linux
-    @questions = Question.pluck(:linux)
+    @questions = Linux.pluck(:q)
     render 'game'
   end
 
   def result
     @miss = params[:miss]
+    @result_time = params[:result_time]
+
+    
   end
 end

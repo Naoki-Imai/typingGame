@@ -3,8 +3,10 @@
     <p id="text"></p>
     <div class="appendTarget text-center display">
       <p id="miss"></p>
+      
     </div>
   </div>
+</div>
 
 <script>
   var textLists = <%= raw @questions %>;
@@ -12,30 +14,36 @@
   var checkTexts =[];
   var count = 0;
   var miss = 0;
-  createText(0);
+  var startTime;
+  var timer;
   try {
-    document.addEventListener('keydown', function keydown(e){
-      if(e.key === checkTexts[0].textContent){
-        checkTexts[0].className = 'add-blue';
-        console.log(e.key);
-        checkTexts.shift();
-        if(!checkTexts.length) {
-          count++;
-          console.log(count);
-          createText(count);
-        }
-      }else if(e.key != checkTexts[0].textContent) {
-        miss++;
-      }
-    });
+    setTimeout("createText(count);", 5000);
+    setTimeout("countUp()", 5000);
+    setTimeout(
+      "document.addEventListener('keydown',keydown );", 5000);
+    
     
   } catch (e) {
     console.error(e);
   }
 
-
+  function keydown(e){
+    if(e.key === checkTexts[0].textContent){
+      checkTexts[0].className = 'add-blue';
+      console.log(e.key);
+      checkTexts.shift();
+      if(!checkTexts.length) {
+        count++;
+        console.log(count);
+        createText(count);
+      }
+    }else if(e.key != checkTexts[0].textContent) {
+      miss++;
+    }
+  }
   function createText(count){
     p.textContent = '';
+    startTime = Date.now();
     if (count < textLists.length){
       checkTexts = textLists[count].split('').map(function(value){
         var span = document.createElement('span');
@@ -51,10 +59,21 @@
       p.textContent = "終了です"
       display.classList.remove('display');
       missText.textContent = 'ミス回数:' + miss + '回';
-      linkbtn.href = "/game/result?miss=" + miss;
+      linkbtn.href = "/game/result?miss=" + miss + "&result_time=" + timer;
       linkbtn.textContent = "結果発表";
       linkbtn.className = "btn btn-primary";
       appendTarget.appendChild(linkbtn);
     }
+  }
+
+  function countUp(){
+    const d = new Date(Date.now() - startTime);
+    const m = String(d.getMinutes()).padStart(2, '0');
+    const s = String(d.getSeconds()).padStart(2, '0');
+    const ms = String(d.getMilliseconds()).padStart(3, '0');
+    timer = `${m}:${s}.${ms}`;
+    timeoutId = setTimeout(() => { 
+      countUp();
+    }, 10);
   }
 </script>

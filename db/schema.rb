@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_075704) do
+ActiveRecord::Schema.define(version: 2021_02_13_071956) do
 
-  create_table "questions", force: :cascade do |t|
-    t.string "git"
-    t.string "linux"
-    t.string "rails"
+  create_table "gits", force: :cascade do |t|
+    t.string "q"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "linuxes", force: :cascade do |t|
+    t.string "q"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rails", force: :cascade do |t|
+    t.string "q"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
